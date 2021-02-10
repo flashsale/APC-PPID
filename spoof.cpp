@@ -5,7 +5,7 @@
 
 
 
-DWORD getParentProcessID() {
+DWORD getProcessID() {
 
     // Take a snapshot of currently running processes
     HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -36,7 +36,7 @@ int main() {
     FreeConsole();
 
     // Get handle to specific parent process
-    ph = OpenProcess(PROCESS_ALL_ACCESS, false, getParentProcessID());
+    ph = OpenProcess(PROCESS_ALL_ACCESS, false, getProcessID());
 
     // Zero out the memory locations of the variables
     ZeroMemory(&si, sizeof(si));
